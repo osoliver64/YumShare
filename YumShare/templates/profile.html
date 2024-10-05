@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Profile
+{% endblock %}
+
+{% block main %}
+    <div style="display:inline-block;">
+        <div class="mt-5">
+            <img class="profile_picture pfp" src="{{  profile['picture']  }}" style="margin-left:-500px">
+        </div>
+        <div class="mt-5">
+            <a id="up-link" style="margin-left:-500px;" href="/upload_image">Upload profile picture</a>
+        </div>
+        
+        <div style="margin-top:-200px;display:flex;margin-left:300px;">
+            <h1 style="margin-right:3em;margin-left:-2em;" class="text-white">
+                {{  usernames['first_name']  }}
+                {% if usernames['last_name'] %}
+                    {{  usernames['last_name']  }}
+                {% endif %}
+            </h1>
+            <a href="/edit_profile" style="margin-left:3em" class="mt-5 btn bg-orange recipe-btn">Edit profile</a>
+        </div>
+        <div class="mt-5">
+            {% if profile["bio"] %}
+                <p class="text-white" style="text-align: left;">{{  profile["bio"]  }}</p>
+            {% endif %}
+        </div>
+        <div class="mt-5">
+            {% if profile["favorite_food"] %}
+            <p class="text-white" style="text-align: left;">Favorite Food: {{  profile["favorite_food"]  }}</p>
+            {% endif %}
+        </div>
+        <div class="mt-5">
+            {% if profile["country"] %}
+            <p class="text-white" style="text-align: left;">Country: {{  profile["country"]  }}</p>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}

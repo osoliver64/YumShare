@@ -1,0 +1,68 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Upload Recipe Image
+{% endblock %}
+
+{% block main %}
+    <div class="container">
+        <div class="row">
+            <div class="col-6 mx-auto mt-5 text-center">
+                {% if upload_type == "recipe" %}
+                    <h1 class="text-white" style="margin-right:5em; margin-bottom:4em;">Upload Recipe Image</h1>
+                {% else %}
+                    <h1 class="text-white" style="margin-right:5em; margin-bottom:4em;">Upload Profile Picture</h1>
+                {% endif %}
+                <form action="/upload_image", method="POST" enctype="multipart/form-data">
+                    {{  form.hidden_tag()  }}
+
+                    {% for error in form.photo.errors %}
+                        <span style="color:red;">{{  error  }}</span>
+                    {% endfor %}
+
+                    <div class="row justify_content-center">
+                        <div class="col-auto">
+                            <input type="file" class="form-control" name="photo">
+                        </div>
+                        <div class="col-auto">
+                            <input type="submit" class="btn btn-success" value="Upload">
+                        </div>
+                        <input hidden type="text" value="recipe" name="whatfor">
+                    </div>
+                </form>
+                 {% if file_url %}
+                    {% if upload_type == "recipe" %}
+                        <div class="mt-5 mx-auto">
+                            <h2 class="text-success" style="margin-top:-30px;">Recipe image uploaded successfully.</h2>
+                        </div>
+                            <div>
+                                <h3 class="text-white" style="margin-bottom:-30px;">Preview:</h3>
+                            </div>
+                            <div class="mt-5" style="margin-top:0;">
+                                <img style="width:250px;" src="{{  file_url  }}" alt="The image you have just uploaded">
+                            </div>
+                    {% else %}
+                        <div class="mt-5 mx-auto">
+                            <h2 class="text-success" style="margin-top:-30px;">Profile picture uploaded successfully.</h2>
+                        </div>
+                        <div>
+                            <h3 class="text-white" style="margin-bottom:-30px;">Preview:</h3>
+                        </div>
+                        <div class="mt-5" style="margin-top:0;">
+                            <img class="profile_picture" src="{{  file_url  }}" alt="The image you have just uploaded">
+                        </div>
+                    {% endif %}
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    {% if upload_type == "recipe" %}
+        <div class="mt-5" style="text-align:left!important;">
+            <a href="/recipe_page" style="text-decoration:none;" class="text-info">Go back to recipe</a>
+        </div>
+    {% else %}
+        <div class="mt-5" style="text-align:left!important;">
+            <a href="/profile" style="text-decoration:none;" class="text-info">Go back to profile</a>
+        </div>
+    {% endif %}
+{% endblock %}

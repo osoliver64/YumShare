@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    All Recipes
+{% endblock %}
+
+{% block main %}
+        <form action="/all_recipes" method="POST">
+            <div style="margin-left:4em;">
+                <select name="sort" onchange="this.form.submit()" class="form-select" aria-label="select how to sort recipes" style="width:9em;border:black;">
+                    <option {% if sort == "nto" %} selected {% endif %} value="nto">New to old</option>
+                    <option {% if sort == "otn" %} selected {% endif %} value="otn">Old to new</option>
+                    <option {% if sort == "alpha" %} selected {% endif %} value="alpha">Alphabetical</option>
+                </select>
+                <label for="sort">Sort by</label>
+            </div>
+            <div class="links">
+                <div>
+                    <input class="recipe-input" type="submit" name="add_recipe" value="clicked" style="background-image:url('../static/images/plus.jpg')">
+                    <p class="text-white">Add Recipe</p>
+                </div>
+                {% if not recipes %}
+                    <h2 class="text-white" style="margin-top:120px;margin-left:40px;">You currently don't have any recipes uploaded.</h2>
+                {% endif %}
+                {% for recipe in recipes %}
+                    <div>
+                        {% if recipe["image"] %}
+                            <div>
+                                <input class="recipe-input" type="submit" name="recipe-btn" value="{{  recipe['name']  }}" style="background-image: url('{{ recipe["image"] }}')">
+                                <p class="text-white;">{{  recipe['name']  }}</p>                        
+                            </div>
+                        {% endif %}
+                </div>
+            {% endfor %}
+        </form>
+    </div>
+{% endblock %}

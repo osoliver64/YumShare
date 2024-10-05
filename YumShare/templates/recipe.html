@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    {{  recipe["name"]  }}
+{% endblock %}
+
+{% block main %}
+    <div id="recipe-div">
+        <div>
+            <h1 id="recipe-title" class="text-white">{{  recipe["name"]  }}</h1>
+            <p><a href="/edit_recipe" class="text-info">Edit recipe</a></p>
+            <form method="POST" action="/recipe_page" onSubmit="return confirm('Are yout sure you want to delete')">
+                <input type="submit" name="delete" value="Delete" class="bg-danger">
+            </form>
+        </div>
+            <p class="text-white" wrap>{{  recipe["description"]  }}</p>
+            <p class="text-white"><b>Category:</b> {% if category %}{{  category  }}{% else %}None{% endif %}</p>
+            <p><b>Servings:</b>  {{  recipe["servings"]  }}</p>
+            <p><b>Prep-time:</b>  {{  recipe["prep"]  }} minutes</p>
+            <p><b>Cook-time:</b>  {{  recipe["cook"]  }} minutes</p>
+            <p><b>Total time:</b>  {{  total  }} minutes</p>
+            <img src="{{  recipe['image']  }}" style="width:250px;">
+            <p><a class="text-info" href="/upload_image" >Upload an image of your recipe</a></p>
+        <div class="recipe-sect">
+            <h5 class="text-white">Ingredients</h5>
+            <pre class="text-white" wrap>{{  recipe["ingredients"]  }}</pre>
+        </div>
+        <div class="recipe-sect">
+            <h5 class="text-white">Insructions</h5>
+            <pre class="text-white" wrap>{{  recipe["instructions"]  }}</pre>
+        </div>
+        <div class="recipe-sect">
+            <h5 class="text-white">Notes</h5>
+            <pre class="text-white" wrap>{{  recipe["notes"]  }}</pre>
+        </div>
+    </div>
+{% endblock %}

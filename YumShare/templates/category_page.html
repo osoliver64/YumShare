@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    {{  category["name"]  }}
+{% endblock %}
+
+{% block main %}
+    <h1 class="text-white" style="text-decoration:underline;">{{  category["name"]  }}</h1>
+    <div class="links">
+        <form action="/all_recipes" method="POST">
+            <figure>
+                <a href="/rec_cat"><img class="icon" src="../static/images/plus.jpg" alt="a plus sign" /></a>
+                <a href="/rec_cat"><figcaption>Add recipe</figcaption></a>
+            </figure>
+            <!-- Change this from figure to an input like below-->
+            {% for recipe in recipes %}
+                <div>
+                    {% if recipe["image"] %}
+                    <div>
+                        <input class="recipe-input" type="submit" name="recipe-btn" value="{{  recipe['name']  }}" style="background-image: url('{{ recipe["image"] }}')">
+                        <p class="text-white;">{{  recipe['name']  }}</p>                        
+                    </div>
+                    {% endif %}
+                </div>
+            {% endfor %}
+        </form>
+    </div>
+{% endblock %}

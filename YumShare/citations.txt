@@ -1,0 +1,19 @@
+Citations:
+
+kitchen-cartoon.jpg: Kseniia M https://dribbble.com/shots/20157920-A-cozy-kitchen
+
+plus.jpg: https://icon-icons.com/icon/plus/152556
+
+default_cat.jpg: https://www.vecteezy.com/vector-art/440965-vector-folder-icon
+
+default-recipe.jpg: https://www.flaticon.com/free-icon/serve_649236
+
+default-pfp.jpg: https://www.vecteezy.com/vector-art/9292244-default-avatar-icon-vector-of-social-media-user
+
+image uploading: @RedEyedCoderClub https://www.youtube.com/watch?v=dP-2NVUgh50
+
+password checking function: https://stackoverflow.com/questions/16709638/checking-the-strength-of-a-password-how-to-check-conditions#32542964
+
+ChatGPT: https://chat.openai.com/ 
+
+Used some functions and framework from CS50 Finance: https://cs50.harvard.edu/x/2024/psets/9/finance/

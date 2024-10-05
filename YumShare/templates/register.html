@@ -1,0 +1,47 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    YumShare: Register
+{% endblock %}
+    
+{% block main %}
+    <h1 class="mb-5 text-info">Sign Up</h1>
+    <form method="POST" action="/register">
+        <div class="mb-3">
+            <input autocomplete="off" autofocus class="form-control mx-auto w-auto" name="username" placeholder="Username" type="text">
+        </div>
+        <div class="mb-3">
+            <input autocomplete="off" class="form-control mx-auto w-auto" name="first_name" placeholder="First Name" type="text">
+        </div>
+        <div class="mb-3">
+            <input autocomplete="off" class="form-control mx-auto w-auto" name="last_name" placeholder="Last Name (optional)" type="text">
+        </div>
+        <div class="mb-3">
+            <input class="form-control mx-auto w-auto" name="password" placeholder="Password" type="password">
+        </div>
+        {% if first == True %}
+            <p class="text-info" style="font-size:15px;;">Please inclue atleast 8 characters, uppercase, lowercase, number and a symbol</p>
+        {% endif %}
+        {% if pass_check["length_error"] == True %}
+            <p class="text-danger">&#10007; Password must be atleast 8 characters</p>
+        {% endif %}
+        {% if pass_check["digit_error"] == True %}
+            <p class="text-danger">&#10007; Password must include a numerical digit</p>
+        {% endif %}
+        {% if pass_check["uppercase_error"] == True %}
+            <p class="text-danger">&#10007; Password must include an uppercase character</p>
+        {% endif %}
+        {% if pass_check["lowercase_error"] == True %}
+            <p class="text-danger">&#10007; Password must include a lowercase character</p>
+        {% endif %}
+        {% if pass_check["symbol_error"] == True %}
+            <p class="text-danger">&#10007; Password must include a symbol</p>
+        {% endif %}
+        <div class="mb-3">
+            <input class="form-control mx-auto w-auto" name="confirmation" placeholder="Confrim password" type="password">
+        </div>
+        <button class="bg-orange" type="submit">Sign Up</button>
+    </form>
+    <p class="mx-auto mt-3">Already have an account  <a href="/login">Log in</a></p>
+{% endblock %}
+

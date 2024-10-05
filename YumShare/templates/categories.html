@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    My Categories
+{% endblock %}
+
+{% block main %}
+<div class="links">
+    <form action="/categories" method="POST">
+        <div class="links recipe-inline">
+            <input type="submit" name="add_cat" value="8392uebdgb287gdb3e8d823ubd973g79eufvb894ubf39u4u934g72082g7233ye38h8d2hijd98ehd9ewh00284hrf971548451951914151" class="recipe-input icon" style="background-image:url('../static/images/plus.jpg');">
+            <p class="text-white">Add category</p>
+        </div>
+        {% for category in categories %}
+            <div class="links recipe-inline">
+                <input class="recipe-input icon" type="submit" name="catBtn" value="{{  category['name']  }}" style="background-image: url('/static/images/default_cat.jpg')">
+                <p class="text-white;">{{  category['name']  }}</p>                        
+            </div>
+        {% endfor %}
+    </form>
+</div>
+{% endblock %}

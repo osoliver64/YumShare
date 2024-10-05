@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Add a Recipe to {{  category["name"]  }}
+{% endblock %}
+
+{% block main %}
+    <div class="links">
+        <form action="/rec_cat" method="POST">
+            {% if not recipesAvailable %}
+                <h2 class="text-white" style="margin-top:20%;">You currently don't have any recipes available to add.</h2>
+            {% endif %}
+            {% for recipe in recipesAvailable %}
+                <div>
+                    {% if recipe["image"] %}
+                    <div>
+                        <input class="recipe-input" type="submit" name="rec" value="{{  recipe['id']  }}" style="background-image: url('{{ recipe["image"] }}')">
+                        <p class="text-white;">{{  recipe['name']  }}</p>                        
+                    </div>
+                    {% endif %}
+                </div>
+            {% endfor %}
+        </form>
+    </div>
+{% endblock %}

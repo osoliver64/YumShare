@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    YumShare: Log In
+{% endblock %}
+    
+{% block main %}
+    <h1 class="mb-5 text-info">Log In</h1>
+    <form action="/login" method="post">
+        <div class="mb-3">
+            <input autocomplete="off" autofocus class="form-control mx-auto w-auto" name="username" placeholder="Username" type="text">
+        </div>
+        <div class="mb-3">
+            <input class="form-control mx-auto w-auto" name="password" placeholder="Password" type="password">
+        </div>
+        <button class="bg-orange" type="submit">Log In</button>
+    </form>
+    <p class="mx-auto mt-3">Don't have an account?  <a href="/register">Sign up</a></p>
+{% endblock %}
+
+

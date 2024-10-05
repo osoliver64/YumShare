@@ -1,0 +1,107 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Homepage
+{% endblock %}
+
+{% block main %}
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const quotes = [
+        {
+          text: "A recipe has no soul. You as the cook must bring soul to the recipe",
+          name: "Thomas Keller"
+        },
+        {
+          text: "Cooking is like painting or writing a song. Just as there are only so many notes or colors, there are only so many flavors—it’s how you combine them that sets you apart.",
+          name: "Thomas Keller"
+        },
+        {
+          text: "If you are a chef, no matter how good a chef you are, it’s not good cooking for yourself; the joy is in cooking for others. It’s the same with music.",
+          name: "will.i.am"
+        },
+        {
+          text: "The only real stumbling block is fear of failure. In cooking, you’ve got to have a what-the-hell attitude.",
+          name: "Julia Child"
+        },
+        {
+          text: "Cooking requires confident guesswork and improvisation—experimentation and substitution, dealing with failure and uncertainty in a creative way.",
+          name: "Paul Theroux" 
+        },
+        {
+          text: "Barbecue may not be the road to world peace, but it’s a start.",
+          name: "Anthony Bourdain"
+        },
+        {
+          text: "Food is everything we are. It’s an extension of nationalist feeling, ethnic feeling, your personal history, your province, your region, your tribe, your grandma. It’s inseparable from those from the get-go.",
+          name: "Anthony Bourdain"
+        },
+        {
+          text: "I think food, culture, people and landscape are all absolutely inseparable.",
+          name: "Anthony Bourdain"
+        },
+        {
+          text: "People confuse me. Food doesn't.",
+          name: "Anthony Bourdain"
+        },
+        {
+          text: "Our movements through time and space seem somehow trivial compared to a heap of boiled meat in broth, the smell of saffron, garlic, fishbones and Pernod.",
+          name: "Anthony Bourdain"
+        },
+        {
+          text: "Whatever had the most shock value became my meal of choice.",
+          name: "Anthony Bourdain"
+        },
+        {
+          text: "Good food is very often, even most often, simple food.",
+          name: "Anthony Bourdain"
+        },
+        {
+          text: "When you acknowledge, as you must, that there is no such thing as perfect food, only the idea of it, then the real purpose of striving toward perfection becomes clear: to make people happy, that is what cooking is all about.",
+          name: "Thomas Keller"
+        },
+        {
+          text: "A party without cake is just a meeting.",
+          name: "Julia Child"
+        },
+        {
+          text: "We're trying to impress people here Lisa, you don't win friends with salads",
+          name: "Homer Simpson"
+        },
+        {
+          text: "Bread is the warmest word in the English Language",
+          name: "Unknown"
+        }
+      ];
+      function displayRandomQuote() {
+        const randomNumber = Math.floor(Math.random() * quotes.length);
+
+        const randomQuote = quotes[randomNumber].text
+        const randomName = quotes[randomNumber].name
+        
+
+        document.getElementById("quote").innerHTML = randomQuote;
+        document.getElementById("name").innerHTML = randomName;
+      };
+      displayRandomQuote();
+      document.getElementById("generate").addEventListener("click", function(){
+        displayRandomQuote();
+      });
+    });
+  </script>
+  <figure class="text-center">
+    <blockquote class="blockquote">
+      <p id="quote"></p>
+    </blockquote>
+    <figcaption class="blockquote-footer" id="name"></figcaption>
+    <button class="bg-orange" id="generate">Generate random quote</button>
+  </figure>
+  <div class="links">
+    <figure>
+        <a href="/all_recipes"><img class="icon" src="../static/images/kitchen-cartoon.jpg" alt="cozy cartoon kitchen" /></a>
+        <a href="/all_recipes"><figcaption>All Recipes</figcaption></a>
+    </figure>
+  </div>
+{% endblock %}
+
+

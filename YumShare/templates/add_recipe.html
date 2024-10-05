@@ -1,0 +1,47 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    New Recipe
+{% endblock %}
+
+{% block main %}
+    <form action="/add_recipe" method="POST">
+        <div class="mb-3">
+            <input autocomplete="off" autofocus class="form-control mx-auto" name="name" style="width:400px;" placeholder="Recipe Name" type="text">
+        </div>
+        <div class="mb-3">
+            <textarea class="form-control mx-auto w-auto" name="description" id="description" cols="40" rows="4" placeholder="Description (optional)"></textarea>
+        </div>
+        <div class="mb-3">
+            <textarea class="form-control mx-auto w-auto" name="ingredients" cols="40" rows="12" placeholder="Ingredients"></textarea>
+        </div>
+        <div class="mb-3">
+            <textarea name="inst" id="inst" placeholder="Instructions" cols="50" rows="10" class="form-control mx-auto w-auto"></textarea>
+        </div>
+        <div class="mb-3">
+            <textarea class="form-control w-auto recipe-inline" name="notes" cols="40" rows="10" placeholder="Notes (optional)"></textarea>
+        </div>
+
+        <div class="mb-3 recipe-inline">
+            <input name="servings" placeholder="Servings" type="number" style="width:120px;" class="form-control recipe-inline">
+        </div>
+        <div class="mb-3 recipe-inline">
+            <input type="text" placeholder="Prep-time (minutes)" name="prep" style="width:120px;" class="form-control recipe-inline">
+        </div>
+        <div class="mb-3 recipe-inline">
+            <input type="text" placeholder="Cook-time (minutes)" name="cook" style="width:120px;margin-bottom:20px;" class="form-control recipe-inline">
+        </div>
+        <div class="mb-3">
+            <select name="category">
+                <option disabled value="">Choose a category</option>
+                <option selected value="">None</option>
+                {% for category in categories %}
+                    <option value="{{ category['id'] }}">{{ category['name'] }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="mb-3">
+            <button type="submit" class="bg-orange">Add Recipe</button>
+        </div>
+    </form>
+{% endblock %}

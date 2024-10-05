@@ -1,0 +1,148 @@
+body {
+    background-color: #212121;
+}
+
+p {
+    color: white;
+}
+
+.bg-orange {
+    background-color: #ff7034;
+}
+
+.bg-darker {
+    background-color: 50%;
+}
+
+button {
+    border-radius: 15px;
+    border: 0px;
+    font-size: 20px;
+}
+
+
+button:hover, .recipe-btn:hover {
+    outline: 0.5px solid white;
+    background-color: #bb5427;
+}
+
+.recipe-input:hover {
+    outline: 0.5px solid white;
+    background-color: none;
+}
+
+.right-drop {
+    margin-left: 20px;
+}
+
+/* my_recipes icon type buttons */
+.icon, .recipe-input {
+    width: 15em;
+    height: 15em;
+    object-fit: cover;
+    border-radius: 15px;
+    border: 0px solid transparent;
+    margin: 25px 25px 0 25px;
+    padding: 0px;
+}
+
+.recipe-input {
+    background-image: url("{{  recipe['image']  }}");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    text-indent: -9999px;
+}
+
+.icon-div {
+    width: 15em;
+    height: 15em;
+}
+
+
+figcaption {
+    text-align: center;
+}
+
+.links form, .links {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.links a {
+    text-decoration: none;
+    color: white;
+}
+
+
+.icon:hover {
+    outline: 2px solid white;
+    outline-offset: -0.5px;
+    border: 3px solid black;
+}
+
+.dropdown-item:hover {
+    color: black !important;
+}
+
+#inst li {
+    color: black;
+    text-align: left;
+}
+
+#inst {
+    width: 300px;
+    background-color: white;
+    border-radius: 10px;
+}
+
+#inst-label {
+    color: white;
+    margin-left: -180px;
+    margin-bottom: 5px;
+}
+
+
+li::marker {
+    font-size: 18px;
+    color: black;
+}
+
+#recipe-div {
+    text-align: left;
+    border: 3px solid cyan;
+    padding: 10px;
+}
+
+.flex {
+    display:flex !important;
+    flex-wrap:wrap;
+}
+.recipe-sect {
+    border: thin solid cyan;
+    border-left: hidden;
+    border-right: hidden;
+    border-bottom: hidden;
+    padding: 5px;
+}
+
+#recipe-title {
+    font-weight: bold;
+}
+
+.profile_picture {
+    width: 175px;
+    height: 175px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.pfp, #up-link {
+    margin: -50px 500px -30px -100px;
+}
+
+.recipe-inline {
+    display: inline;
+    margin-left: 10px;
+}

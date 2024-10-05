@@ -1,0 +1,72 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Edit Recipe
+{% endblock %}
+
+{% block main %}
+    <form action="/edit_recipe" method="POST">
+        <div class="mb-3">
+            <h1 class="text-info">Edit {{  recipe["name"]  }} Recipe</h1>
+        </div>
+        <div class="mb-3">
+            <input autocomplete="off" autofocus class="form-control mx-auto" name="name" style="width:400px;" placeholder="Recipe name" type="text"
+            {% if recipe["name"] %}
+                value="{{  recipe['name']  }}"
+            {% endif %}
+            >
+        </div>
+        <div class="mb-3">
+            <textarea class="form-control mx-auto w-auto" name="description" wrap="hard" id="description" cols="40" rows="4" placeholder="Description (optional)">{% if recipe["description"] %}{{  recipe["description"]  }}{% endif %}</textarea>
+        </div>
+        <div class="mb-3">
+            <textarea class="form-control mx-auto w-auto" wrap="hard" name="ingredients" cols="40" rows="12" placeholder="Ingredients">{% if recipe["ingredients"] %}{{  recipe["ingredients"]  }}
+                {% endif %}
+            </textarea>
+        </div>
+        <div class="mb-3">
+            <textarea name="inst" wrap="hard" id="inst" placeholder="Instructions" cols="50" rows="10" class="form-control mx-auto w-auto">{% if recipe["instructions"] %}{{ recipe["instructions"]  }}
+                {% endif %}
+            </textarea>
+        </div>
+        <div class="mb-3">
+            <textarea class="form-control w-auto recipe-inline" wrap="hard" name="notes" cols="40" rows="10" placeholder="Notes (optional)">{% if recipe["notes"] %}{{  recipe["notes"] }}
+                {% endif %}
+            </textarea>
+        </div>
+
+        <div class="mb-3 recipe-inline">
+            <input name="servings" placeholder="Servings" type="number" style="width:120px;" class="form-control recipe-inline"
+            {% if recipe["servings"] %}
+                value="{{  recipe['servings']  }}"
+            {% endif %}
+            >
+        </div>
+        <div class="mb-3 recipe-inline">
+            <input type="text" placeholder="Prep-time (minutes)" name="prep" style="width:120px;" class="form-control recipe-inline"
+            {% if recipe["prep"] %}
+                value="{{  recipe['prep']  }}"
+            {% endif %}
+            >
+        </div>
+        <div class="mb-3 recipe-inline">
+            <input type="text" placeholder="Cook-time (minutes)" name="cook" style="width:120px;margin-bottom:20px;" class="form-control recipe-inline"
+            {% if recipe["cook"] %}
+                value="{{  recipe['cook']  }}"
+            {% endif %}
+            >
+        </div>
+        <div class="mb-3">
+            <select name="category">
+                    <option disabled value="">Choose a category</option>
+                    <option {% if not cat %} selected {% endif %} value="">None</option>
+                {% for category in categories %}
+                    <option value="{{ category['id'] }}" {% if cat == category['id'] %} selected {% endif %}>{{ category["name"] }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="mb-3">
+            <button type="submit" class="bg-orange">Save changes</button>
+        </div>
+    </form>
+{% endblock %}
